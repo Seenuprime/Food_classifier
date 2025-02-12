@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+    <h1>Food Classifier</h1>
+    <p>We trained the model with only 20 classes</p>
+    <p>These are the classes:</p>
+    <p style="font-size: 15px;">Burger, Butter naan, Chai, Chapati, Chole bhature, Dal makhani, Dhokla, Fried rice, Idli, Jalebi, Kaathi rolls, Kadai paneer, Kulfi, Masala dosa, Momos, Paani puri, Pakode, Pav bhaji, Pizza, Samosa</p>
+    </nav>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*">
+        <button type="submit">Predict</button>
+        <button type="button" onclick="resetForm()">Reset</button>
+    </form>
+
+    <script>
+        function resetForm() {
+            document.querySelector('input[type=file]').value = '';
+            document.querySelector('img').src = '';
+            document.querySelector('h2').innerText = '';
+            
+            // Send AJAX request to delete uploaded files
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/reset", true);
+            xhr.send();
+        }
+    </script>
+
+    {% if image_path %}
+    <h2>Predicted Class: {{ predicted_label }}</h2>
+    <img src="{{ url_for('static', filename=image_path) }}" alt="Uploaded Image">
+    {% endif %}
+</body>
+</html>

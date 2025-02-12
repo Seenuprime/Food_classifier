@@ -1,0 +1,49 @@
+body {
+    font-family: Pacifico, cursive; 
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+nav {
+    text-align: center;
+    margin-top: 20px;
+}
+
+p{
+    margin: 0;
+}
+button {
+    font-family: Pacifico, cursive;
+}
+
+form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+input[type="file"] {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+img {
+    display: block;
+    margin: 20px auto;
+    width: 250;
+    height: auto;
+}
+
+h2 {
+    text-align: center;
+}
